@@ -15,6 +15,7 @@ class Enemy extends Phaser.Sprite {
         
         this.animations.add('getHit', [0, 1, 2, 1, 0], false);
 
+
     }
 
     update() {
@@ -54,6 +55,9 @@ class Enemy extends Phaser.Sprite {
         }
 
     }
+
+
+   
 
 }
 

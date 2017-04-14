@@ -15,6 +15,7 @@ class HomeState extends Phaser.State {
       this.game.world.height - 50
     );
     this.bullets = new globalObjects.Bullets(this.game);
+    this.enemyBullets = new globalObjects.EnemyBullets(this.game);
     this.enemies = new globalObjects.Enemies(this.game);
 
     this.shootingTimer = this.game.time.events.loop(
@@ -22,7 +23,6 @@ class HomeState extends Phaser.State {
       () => {
         this.bullets.createPlayerBullet(this.player);
       });
-
 
   }
 

@@ -5,6 +5,8 @@ class Enemies extends Phaser.Group {
     constructor(game) {
 
         super(game);
+
+        let enemyBullets = new globalObjects.EnemyBullets(this.game);
         
         let enemy = new Enemy(
             game,
@@ -12,7 +14,7 @@ class Enemies extends Phaser.Group {
             100,
             'greenEnemy',
             10,
-            []
+            enemyBullets
         );
         this.add(enemy);
 
