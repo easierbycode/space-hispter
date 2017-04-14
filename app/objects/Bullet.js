@@ -8,8 +8,6 @@ class Bullet extends Phaser.Sprite {
         this.checkWorldBounds = true;
         this.outOfBoundsKill = true;
 
-        game.add.existing(this);
-
     }
 
 }
