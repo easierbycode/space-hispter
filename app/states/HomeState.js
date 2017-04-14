@@ -4,8 +4,6 @@ class HomeState extends Phaser.State {
 
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    this.BULLET_SPEED = -1000;
-
   }
 
   create() {
@@ -16,6 +14,13 @@ class HomeState extends Phaser.State {
       this.game.world.centerX,
       this.game.world.height - 50
     );
+    this.bullets = new globalObjects.Bullets(this.game);
+
+    this.shootingTimer = this.game.time.events.loop(
+      Phaser.Timer.SECOND/5,
+      () => {
+        this.bullets.createPlayerBullet(this.player);
+      });
 
   }
 
