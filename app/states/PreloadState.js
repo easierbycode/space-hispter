@@ -13,11 +13,11 @@ class PreloadState extends Phaser.State {
     this.load.spritesheet('greenEnemy', './images/green_enemy.png', 50, 46, 3, 1, 1);
 
     //load level data
-    //this.load.text('level1', 'assets/data/level1.json');
-    //this.load.text('level2', 'assets/data/level2.json');
-    //this.load.text('level3', 'assets/data/level3.json');
+    this.load.text('level1', './data/level1.json');
+    this.load.text('level2', './data/level2.json');
+    this.load.text('level3', './data/level3.json');
 
-    this.load.audio('orchestra', ['./audio/8bit-orchestra.mp3', 'assets/audio/8bit-orchestra.ogg']);
+    this.load.audio('orchestra', ['./audio/8bit-orchestra.mp3', './audio/8bit-orchestra.ogg']);
 
   }
 
