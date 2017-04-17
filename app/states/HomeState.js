@@ -7,7 +7,6 @@ class HomeState extends Phaser.State {
     // level data
     this.numLevels = 3;
     this.currentLevel = currentLevel ? currentLevel : 1;
-    console.log(this.currentLevel);
 
   }
 
@@ -24,6 +23,9 @@ class HomeState extends Phaser.State {
     this.player.startShootingTimer();
 
     this.loadLevel();
+
+    this.orchestra = this.add.audio('orchestra');
+    this.orchestra.play();
 
   }
 
@@ -44,6 +46,7 @@ class HomeState extends Phaser.State {
       this.player,
       () => {
         this.player.killPlayer()
+        this.orchestra.stop();
       },
       null,
       this
@@ -68,7 +71,7 @@ class HomeState extends Phaser.State {
     this.endOfLevelTimer = this.game.time.events.add(
       this.levelData.duration * Phaser.Timer.SECOND,
       () => {
-        console.log('level end');
+        this.orchestra.stop();
 
         if(this.currentLevel < this.numLevels) {
           this.currentLevel++;
