@@ -1,6 +1,6 @@
 import Bullet from './Bullet';
 
-class Bullets extends Phaser.Group {
+class PlayerBullets extends Phaser.Group {
 
     constructor(game) {
 
@@ -19,11 +19,7 @@ class Bullets extends Phaser.Group {
         if(bullet) {
             bullet.reset(player.x, player.top);
         } else {
-            bullet = new Bullet(
-                this.game,
-                player.x,
-                player.top
-            );
+            bullet = new Bullet(this.game, player.x, player.top);
             this.add(bullet);
         }
 
@@ -34,4 +30,4 @@ class Bullets extends Phaser.Group {
 
 }
 
-export default Bullets;
+export default PlayerBullets;

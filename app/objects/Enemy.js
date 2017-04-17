@@ -4,32 +4,28 @@ class Enemy extends Phaser.Sprite {
 
         super(game, x, y, key);
 
+        // set variables
         this.health = health;
         this.enemyBullets = enemyBullets;
 
+        // positioning
         this.anchor.setTo(0.5);
 
+        // physics properties
         game.physics.arcade.enable(this);
         this.body.velocity.x = 100;
         this.body.velocity.y = 50;
-        
-        this.animations.add('getHit', [0, 1, 2, 1, 0], false);
+        this.body.collideWorldBounds = true;
+        this.body.bounce.setTo(1, 0);
 
+        // initialize animations
+        this.animations.add('getHit', [0, 1, 2, 1, 0], false);
 
     }
 
     update() {
 
-        if(this.x < 0.05 * this.game.world.width) {
-            this.x = 0.05 * this.game.world.width + 2;
-            this.body.velocity.x *= -1;
-        }
-        else if(this.x > 0.95 * this.game.world.width) {
-            this.x = 0.95 * this.game.world.width -2;
-            this.body.velocity.x *= -1;
-        }
-
-        if(this.top > this.game.world.height) {
+        if(this.bottom > this.game.world.height - 1) {
             this.kill();
         }
 
@@ -37,16 +33,26 @@ class Enemy extends Phaser.Sprite {
 
     damage(amount) {
 
+        // retain phaser damage functionality
         Phaser.Sprite.prototype.damage.call(this, amount);
-        this.play('getHit');
 
+        // play animation
+        this.animateGetHit();
+        
+        // when dead
         if(this.health <= 0) {
-            this.createDeathEmitter();
+            this.emitDeath();
         }
 
     }
 
-    createDeathEmitter() {
+    animateGetHit() {
+
+        this.play('getHit');
+
+    }
+
+    emitDeath() {
 
         let emitter = this.game.add.emitter(
             this.x,
