@@ -1,8 +1,13 @@
 class HomeState extends Phaser.State {
 
-  init() {
+  init(currentLevel) {
 
     this.game.physics.startSystem(Phaser.Physics.ARCADE);
+
+    // level data
+    this.numLevels = 3;
+    this.currentLevel = currentLevel ? currentLevel : 1;
+    console.log(this.currentLevel);
 
   }
 
@@ -17,6 +22,8 @@ class HomeState extends Phaser.State {
     this.enemies = new globalObjects.Enemies(this.game);
 
     this.player.startShootingTimer();
+
+    this.loadLevel();
 
   }
 
@@ -48,6 +55,227 @@ class HomeState extends Phaser.State {
       this.player.setSpeed(direction);
     } else if(this.game.input.activePointer.isUp) {
         this.player.body.velocity.x = 0;
+    }
+
+  }
+
+  loadLevel() {
+
+    this.currentEnemyIndex = 0;
+    this.levelData = 
+      {
+      "duration": 5,
+      "enemies": 
+      [
+        {
+          "time": 1,
+          "x": 0.05,
+          "health": 6,
+          "speedX": 20, 
+          "speedY": 50,
+          "key": "greenEnemy",
+          "scale": 3
+        },
+        {
+          "time": 2,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 50, 
+          "speedY": 50,
+          "key": "greenEnemy",
+          "scale": 1
+        },
+        {
+          "time": 3,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 50, 
+          "speedY": 50,
+          "key": "greenEnemy",
+          "scale": 1
+        },
+        {
+          "time": 4,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 50, 
+          "speedY": 50,
+          "key": "greenEnemy",
+          "scale": 1
+        },
+        {
+          "time": 5,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 50, 
+          "speedY": 50,
+          "key": "greenEnemy",
+          "scale": 1
+        },
+        {
+          "time": 6,
+          "x": 0.1,
+          "health": 6,
+          "speedX": 50, 
+          "speedY": 50,
+          "key": "greenEnemy",
+          "scale": 3
+        },
+        {
+          "time": 7,
+          "x": 0.9,
+          "health": 3,
+          "speedX": -50, 
+          "speedY": 50,
+          "key": "redEnemy",
+          "scale": 2
+        },
+        {
+          "time": 8,
+          "x": 0.9,
+          "health": 3,
+          "speedX": -50, 
+          "speedY": 50,
+          "key": "redEnemy",
+          "scale": 1
+        },
+        {
+          "time": 9,
+          "x": 0.9,
+          "health": 3,
+          "speedX": -50, 
+          "speedY": 50,
+          "key": "redEnemy",
+          "scale": 1
+        },
+        {
+          "time": 10,
+          "x": 0.9,
+          "health": 3,
+          "speedX": -50, 
+          "speedY": 50,
+          "key": "redEnemy",
+          "scale": 1
+        },
+        {
+          "time": 11,
+          "x": 0.9,
+          "health": 3,
+          "speedX": -50, 
+          "speedY": 50,
+          "key": "redEnemy",
+          "scale": 1
+        },
+        {
+          "time": 12,
+          "x": 0.9,
+          "health": 6,
+          "speedX": -50, 
+          "speedY": 50,
+          "key": "redEnemy",
+          "scale": 3
+        },
+        {
+          "time": 13,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 100, 
+          "speedY": 20,
+          "key": "greenEnemy",
+          "scale": 1
+        },
+        {
+          "time": 14,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 100, 
+          "speedY": 20,
+          "key": "yellowEnemy",
+          "scale": 1
+        },
+        {
+          "time": 15,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 100, 
+          "speedY": 20,
+          "key": "yellowEnemy",
+          "scale": 1
+        },
+        {
+          "time": 16,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 100, 
+          "speedY": 20,
+          "key": "yellowEnemy",
+          "scale": 1
+        },
+        {
+          "time": 17,
+          "x": 0.1,
+          "health": 3,
+          "speedX": 100, 
+          "speedY": 20,
+          "key": "yellowEnemy",
+          "scale": 1
+        },
+        {
+          "time": 18,
+          "x": 0.1,
+          "health": 12,
+          "speedX": 120, 
+          "speedY": 50,
+          "key": "yellowEnemy",
+          "scale": 5
+        }
+        
+      ]
+    };
+    
+    // end of the level timer
+    this.endOfLevelTimer = this.game.time.events.add(
+      this.levelData.duration * Phaser.Timer.SECOND,
+      () => {
+        console.log('level end');
+
+        if(this.currentLevel < this.numLevels) {
+          this.currentLevel++;
+        }
+        else {
+          this.currentLevel = 1;
+        }
+
+        this.game.state.start('HomeState', true, false, this.currentLevel);
+      }
+    )
+    this.scheduleNextEnemy();
+            
+  }
+
+  scheduleNextEnemy() {
+
+    let nextEnemy = this.levelData.enemies[this.currentEnemyIndex];
+    let previousEnemy = this.levelData.enemies[this.currentEnemyIndex - 1];
+
+    if(nextEnemy) {
+      let nextTime = Phaser.Timer.SECOND * (nextEnemy.time - 
+        (this.currentEnemyIndex == 0 ? 0 : previousEnemy.time));
+
+        this.nextEnemyTimer = this.game.time.events.add(nextTime,
+          () => {
+            this.enemies.createEnemy(
+              nextEnemy.x * this.game.world.width, 
+              -100, 
+              nextEnemy.health,
+              nextEnemy.key,
+              nextEnemy.scale,
+              nextEnemy.speedX,
+              nextEnemy.speedY
+            );
+            this.currentEnemyIndex++;
+            this.scheduleNextEnemy();
+          });
     }
 
   }

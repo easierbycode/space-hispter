@@ -5,17 +5,25 @@ class Enemies extends Phaser.Group {
         super(game);
 
         this.enemyBullets = new globalObjects.EnemyBullets(this.game);
-        
-        
-        let enemy = new globalObjects.Enemy(
-            game,
-            100,
-            100,
-            'greenEnemy',
-            10,
-            this.enemyBullets
-        );
-        this.add(enemy);
+
+    }
+
+    createEnemy(x, y, health, key, scale, speedX, speedY) {
+        let enemy = this.getFirstExists(false);
+
+        if (!enemy) {
+            enemy = new globalObjects.Enemy(
+                this.game,
+                x,
+                y,
+                key,
+                health,
+                this.enemyBullets
+            );
+            this.add(enemy);
+        }
+
+        enemy.reset(x, y, health, key, scale, speedX, speedY);
 
     }
 

@@ -17,10 +17,7 @@ class Enemy extends Phaser.Sprite {
 
         // physics properties
         game.physics.arcade.enable(this);
-        this.body.velocity.x = 0;
-        this.body.velocity.y = 0;
-        this.body.collideWorldBounds = true;
-        this.body.bounce.setTo(1, 0);
+   
 
         // initialize animations
         this.animations.add('getHit', [0, 1, 2, 1, 0], false);
@@ -31,7 +28,18 @@ class Enemy extends Phaser.Sprite {
 
     update() {
 
-        if(this.bottom > this.game.world.height - 1) {
+        //bounce on the borders
+        if(this.position.x < 0.05 * this.game.world.width) {
+            this.position.x = 0.05 * this.game.world.width + 2;
+            this.body.velocity.x *= -1;
+        }
+        else if(this.position.x > 0.95 * this.game.world.width) {
+            this.position.x = 0.95 * this.game.world.width - 2;
+            this.body.velocity.x *= -1;
+        }
+
+        // kill object at bottom
+        if(this.top > this.game.world.height) {
             this.kill();
         }
 
@@ -60,19 +68,24 @@ class Enemy extends Phaser.Sprite {
         // when dead
         if(this.health <= 0) {
             this.emitDeath();
+            this.enemyTimer.pause();
         }
 
     }
 
-    reset(x, y, key, scale, speedX, speedY) {
+    reset(x, y, health, key, scale, speedX, speedY) {
 
-        Phaser.Sprite.prototype.reset.call(this, x, y, health); // calls normal properties
+        // calls default reset properties
+        Phaser.Sprite.prototype.reset.call(this, x, y, health); 
 
-        this.setTexture(key);
+        // new properties
+        this.loadTexture(key);
         this.scale.setTo(scale);
         this.body.velocity.x = speedX;
         this.body.velocity.y = speedY;
 
+        // resume timer
+        this.enemyTimer.resume();
 
     }
 
