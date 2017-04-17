@@ -16,14 +16,7 @@ class HomeState extends Phaser.State {
     );
     this.enemies = new globalObjects.Enemies(this.game);
 
-    this.playerBullets = new globalObjects.PlayerBullets(this.game);
-    this.enemyBullets = new globalObjects.EnemyBullets(this.game);
-    
-    this.shootingTimer = this.game.time.events.loop(
-      Phaser.Timer.SECOND/5,
-      () => {
-        this.playerBullets.createPlayerBullet(this.player);
-      });
+    this.player.startShootingTimer();
 
   }
 
@@ -31,9 +24,20 @@ class HomeState extends Phaser.State {
 
     // enemies & player bullet overlap detection
     this.game.physics.arcade.overlap(
-      this.playerBullets, 
+      this.player.playerBullets, 
       this.enemies, 
       this.enemies.damageEnemy, 
+      null,
+      this
+    );
+
+    // enemy bullets & player detection
+    this.game.physics.arcade.overlap(
+      this.enemies.enemyBullets, 
+      this.player,
+      () => {
+        this.player.killPlayer()
+      },
       null,
       this
     );

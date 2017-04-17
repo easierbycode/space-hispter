@@ -1,12 +1,10 @@
-import Bullet from './Bullet';
-
 class EnemyBullets extends Phaser.Group {
 
     constructor(game) {
 
         super(game);
 
-        this.BULLET_SPEED = -1000;
+        this.BULLET_SPEED = 200;
 
         this.enableBody = true;
 
@@ -19,7 +17,7 @@ class EnemyBullets extends Phaser.Group {
         if(bullet) {
             bullet.reset(enemy.x, enemy.y);
         } else {
-            bullet = new Bullet(this.game, enemy.x, enemy.bottom);
+            bullet = new globalObjects.Bullet(this.game, enemy.x, enemy.bottom);
             this.add(bullet);
         }
 

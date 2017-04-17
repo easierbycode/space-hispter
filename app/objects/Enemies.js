@@ -1,20 +1,19 @@
-import Enemy from './Enemy';
-
 class Enemies extends Phaser.Group {
 
     constructor(game) {
 
         super(game);
 
-        let enemyBullets = new globalObjects.EnemyBullets(this.game);
+        this.enemyBullets = new globalObjects.EnemyBullets(this.game);
         
-        let enemy = new Enemy(
+        
+        let enemy = new globalObjects.Enemy(
             game,
             100,
             100,
             'greenEnemy',
             10,
-            enemyBullets
+            this.enemyBullets
         );
         this.add(enemy);
 

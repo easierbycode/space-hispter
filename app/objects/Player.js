@@ -5,6 +5,7 @@ class Player extends Phaser.Sprite {
         super(game, x, y, 'player');
 
         this.PLAYER_SPEED = 200;
+        this.playerBullets = new globalObjects.PlayerBullets(this.game);
 
         this.anchor.setTo(0.5);
         this.game.physics.arcade.enable(this);
@@ -18,6 +19,22 @@ class Player extends Phaser.Sprite {
 
         this.body.velocity.x = direction * this.PLAYER_SPEED;
 
+    }
+
+    startShootingTimer() {
+    
+        this.shootingTimer = this.game.time.events.loop(
+            Phaser.Timer.SECOND/5,
+            () => {
+                this.playerBullets.createPlayerBullet(this);
+        });
+    }
+
+    killPlayer() {
+
+        this.kill();
+        this.game.state.restart();
+        
     }
 
 }

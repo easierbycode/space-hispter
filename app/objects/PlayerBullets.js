@@ -1,5 +1,3 @@
-import Bullet from './Bullet';
-
 class PlayerBullets extends Phaser.Group {
 
     constructor(game) {
@@ -19,7 +17,7 @@ class PlayerBullets extends Phaser.Group {
         if(bullet) {
             bullet.reset(player.x, player.top);
         } else {
-            bullet = new Bullet(this.game, player.x, player.top);
+            bullet = new globalObjects.Bullet(this.game, player.x, player.top);
             this.add(bullet);
         }
 
