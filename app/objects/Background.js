@@ -16,6 +16,7 @@ class Background extends Phaser.TileSprite {
         let direction = targetX >= this.game.world.centerX ? 1 : -1;
 
         return direction;
+        
     }
 }
 
