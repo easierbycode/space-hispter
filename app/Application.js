@@ -6,7 +6,7 @@ class Application extends Phaser.Game {
 
   constructor() {
 
-    super('100%', '100%', Phaser.AUTO, 'game');
+    super(405, 720, Phaser.AUTO, 'game');
 
     this.state.add('BootState', BootState);
     this.state.add('PreloadState', PreloadState);
