@@ -66,7 +66,7 @@ class HomeState extends Phaser.State {
 
     this.currentEnemyIndex = 0;
     this.levelData = JSON.parse(this.game.cache.getText('level' + this.currentLevel));
-    
+
     // end of the level timer
     this.endOfLevelTimer = this.game.time.events.add(
       this.levelData.duration * Phaser.Timer.SECOND,
