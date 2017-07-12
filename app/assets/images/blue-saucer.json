@@ -1,0 +1,44 @@
+{"frames": {
+
+"1.png":
+{
+	"frame": {"x":1,"y":1,"w":180,"h":58},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":58},
+	"sourceSize": {"w":180,"h":58}
+},
+"2.png":
+{
+	"frame": {"x":183,"y":1,"w":180,"h":58},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":58},
+	"sourceSize": {"w":180,"h":58}
+},
+"3.png":
+{
+	"frame": {"x":365,"y":1,"w":180,"h":58},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":58},
+	"sourceSize": {"w":180,"h":58}
+},
+"4.png":
+{
+	"frame": {"x":547,"y":1,"w":180,"h":58},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":180,"h":58},
+	"sourceSize": {"w":180,"h":58}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "blue-saucer.png",
+	"format": "RGBA8888",
+	"size": {"w":728,"h":60},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9fd7ff78f8fbb021b6eda64282086d24:b6e393abc10ed198c1c01392cf6e9be1:f3ceff0bc6dc362f979ec2e2ce519f81$"
+}
+}

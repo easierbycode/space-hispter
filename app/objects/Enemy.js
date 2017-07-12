@@ -20,7 +20,7 @@ class Enemy extends Phaser.Sprite {
    
 
         // initialize animations
-        this.animations.add('getHit', [0, 1, 2, 1, 0], false);
+        this.animations.add('getHit', [0, 1, 2, 1, 2, 0], false);
 
         this.scheduleShooting();
 
@@ -80,9 +80,12 @@ class Enemy extends Phaser.Sprite {
 
         // new properties
         this.loadTexture(key);
-        this.scale.setTo(scale);
-        this.body.velocity.x = speedX;
-        this.body.velocity.y = speedY;
+        // this.scale.setTo(scale);
+        this.scale.setTo(1);
+        // this.body.velocity.x = speedX;
+        // this.body.velocity.y = speedY;
+        // this.body.velocity.y = speedX;
+        this.body.velocity.y = 120;
 
         // resume timer
         this.enemyTimer.resume();
