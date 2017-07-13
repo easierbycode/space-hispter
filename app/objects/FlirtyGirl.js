@@ -112,15 +112,19 @@ class FlirtyGirl extends Phaser.Sprite {
             this.y,
             100
         );
-        // emitter.makeParticles('enemyParticle');
-        emitter.makeParticles('flirtyGirl', ['8','9']);;
+
         emitter.minParticleSpeed.setTo(-400, -400);
         emitter.maxParticleSpeed.setTo(400, 400);
         emitter.minParticleScale = this.scale.x;
         emitter.maxParticleScale = this.scale.x;
         emitter.setAlpha( 1, 0, (0.5 * 1000), 'Cubic.easeIn' );
         emitter.gravity = 200;
-        emitter.start(true, 500, null, 2);
+        
+        emitter.makeParticles('flirtyGirl', '8');
+        emitter.start(true, 500, null, 1);
+
+        emitter.makeParticles('flirtyGirl', '9');
+        emitter.start(true, 500, null, 1);
 
     }
 
