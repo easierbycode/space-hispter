@@ -1,8 +1,8 @@
-class Enemy extends Phaser.Sprite {
+class FlirtyGirl extends Phaser.Sprite {
 
     constructor(game, x, y, key, health, enemyBullets) {
 
-        super(game, x, y, key);
+        super(game, x, y, key, '1');
 
         // set variables
         this.enemyBullets = enemyBullets;
@@ -20,7 +20,7 @@ class Enemy extends Phaser.Sprite {
    
 
         // initialize animations
-        this.animations.add('getHit', [0, 1, 2, 1, 2, 0], 12, false);
+        this.animations.add('getHit', ['2', '3', '4', '5', '4', '5', '2'], 6, false);
 
         this.scheduleShooting();
 
@@ -29,14 +29,14 @@ class Enemy extends Phaser.Sprite {
     update() {
 
         //bounce on the borders
-        // if(this.position.x < 0.05 * this.game.world.width) {
-        //     this.position.x = 0.05 * this.game.world.width + 2;
-        //     this.body.velocity.x *= -1;
-        // }
-        // else if(this.position.x > 0.95 * this.game.world.width) {
-        //     this.position.x = 0.95 * this.game.world.width - 2;
-        //     this.body.velocity.x *= -1;
-        // }
+        if(this.position.x < 0.05 * this.game.world.width) {
+            this.position.x = 0.05 * this.game.world.width + 2;
+            this.body.velocity.x *= -1;
+        }
+        else if(this.position.x > 0.95 * this.game.world.width) {
+            this.position.x = 0.95 * this.game.world.width - 2;
+            this.body.velocity.x *= -1;
+        }
 
         // kill object at bottom
         if(this.top > this.game.world.height) {
@@ -50,7 +50,7 @@ class Enemy extends Phaser.Sprite {
         this.enemyBullets.createEnemyBullet(this);
 
         this.enemyTimer.add(
-            Phaser.Timer.SECOND * 2,
+            Phaser.Timer.SECOND * 4,
             this.scheduleShooting,
             this
         );
@@ -83,16 +83,16 @@ class Enemy extends Phaser.Sprite {
         
         
         // this.body.velocity.y = speedX;
-        if ( key == 'redDevil' || key == 'magentaMan') {
-            this.body.velocity.y = 120;
+        // if ( key == 'redDevil' || key == 'magentaMan') {
+        //     this.body.velocity.y = 120;
             
-            this.scale.setTo( 1 );
-        } else {
-            this.body.velocity.x = speedX;
-            this.body.velocity.y = speedY;
+        //     this.scale.setTo(1);
+        // } else {
+        this.body.velocity.x = speedX;
+        this.body.velocity.y = speedY;
 
-            this.scale.setTo(scale);
-        }
+        this.scale.setTo( scale );
+        // }
 
         // resume timer
         this.enemyTimer.resume();
@@ -122,4 +122,4 @@ class Enemy extends Phaser.Sprite {
 
 }
 
-export default Enemy;
+export default FlirtyGirl;
