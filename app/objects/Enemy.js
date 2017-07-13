@@ -29,14 +29,14 @@ class Enemy extends Phaser.Sprite {
     update() {
 
         //bounce on the borders
-        // if(this.position.x < 0.05 * this.game.world.width) {
-        //     this.position.x = 0.05 * this.game.world.width + 2;
-        //     this.body.velocity.x *= -1;
-        // }
-        // else if(this.position.x > 0.95 * this.game.world.width) {
-        //     this.position.x = 0.95 * this.game.world.width - 2;
-        //     this.body.velocity.x *= -1;
-        // }
+        if(this.position.x < 0.05 * this.game.world.width) {
+            this.position.x = 0.05 * this.game.world.width + 2;
+            this.body.velocity.x *= -1;
+        }
+        else if(this.position.x > 0.95 * this.game.world.width) {
+            this.position.x = 0.95 * this.game.world.width - 2;
+            this.body.velocity.x *= -1;
+        }
 
         // kill object at bottom
         if(this.top > this.game.world.height) {
