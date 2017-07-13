@@ -15,6 +15,9 @@ class PreloadState extends Phaser.State {
     this.load.spritesheet('redEnemy', './images/red_enemy.png', 50, 46, 3, 1, 1);
     this.load.spritesheet('greenEnemy', './images/green_enemy.png', 50, 46, 3, 1, 1);
     this.load.spritesheet( 'kissBullet', './images/kiss-bullet.png', 25, 21 );
+    this.load.spritesheet( 'lakitufo', './images/lakitufo.png', 36, 38 );
+    this.load.spritesheet( 'lakitufoDie', './images/lakitufo-die.png', 28, 28 );
+    
     this.load.spritesheet('redDevil', './images/red-devil.png', 90, 71);
     this.load.spritesheet('magentaMan', './images/magenta-man.png', 80, 74);
 

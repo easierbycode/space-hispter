@@ -1,6 +1,7 @@
 {
   "duration": 35,
   "groups": [
+    "lakitufos",
     "enemies",
     "flirtyGirls"
   ],
@@ -57,24 +58,14 @@
       "type": "flirtyGirls"
     },
     {
-      "time": 6,
-      "x": 0.1,
-      "health": 12,
-      "speedX": 20, 
-      "speedY": 50,
-      "key": "flirtyGirl",
-      "scale": 3,
-      "type": "flirtyGirls"
-    },
-    {
       "time": 7,
       "x": 0.2,
-      "health": 6,
+      "health": 18,
       "speedX": 20, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "lakitufo",
       "scale": 3,
-      "type": "enemies"
+      "type": "lakitufos"
     },
     {
       "time": 8,
@@ -82,9 +73,9 @@
       "health": 3,
       "speedX": 50, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "lakitufo",
       "scale": 1,
-      "type": "enemies"
+      "type": "lakitufos"
     },
     {
       "time": 9,
@@ -92,9 +83,9 @@
       "health": 3,
       "speedX": 50, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "lakitufo",
       "scale": 1,
-      "type": "enemies"
+      "type": "lakitufos"
     },
     {
       "time": 10,
@@ -102,9 +93,9 @@
       "health": 3,
       "speedX": 50, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "lakitufo",
       "scale": 1,
-      "type": "enemies"
+      "type": "lakitufos"
     },
     {
       "time": 11,

@@ -6,6 +6,8 @@ import FlirtyGirl from '../objects/FlirtyGirl';
 import FlirtyGirlBullets from '../objects/FlirtyGirlBullets';
 import FlirtyGirls from '../objects/FlirtyGirls';
 import KissBullet from '../objects/KissBullet';
+import Lakitufo from '../objects/Lakitufo';
+import Lakitufos from '../objects/Lakitufos';
 import Bullet from '../objects/Bullet';
 import PlayerBullets from '../objects/PlayerBullets';
 import EnemyBullets from '../objects/EnemyBullets';
@@ -23,6 +25,8 @@ window.globalObjects = {
   FlirtyGirlBullets : FlirtyGirlBullets,
   FlirtyGirls       : FlirtyGirls,
   KissBullet        : KissBullet,
+  Lakitufo          : Lakitufo,
+  Lakitufos         : Lakitufos,
 
   Utils : {
     titleize    : titleize
