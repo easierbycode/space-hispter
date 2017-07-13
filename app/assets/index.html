@@ -20,8 +20,27 @@
       padding: 0;
       margin: 0 0 1px 0;
       overflow: hidden;
-      }
-    </style>
+    }
+
+    img {
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -webkit-user-drag: none;
+      user-drag: none;
+      -webkit-touch-callout: none;
+    }
+  </style>
+
+  <script type="text/javascript">
+    function nocontext(e) {
+      var clickedTag = (e==null) ? event.srcElement.tagName : e.target.tagName;
+      if ( clickedTag == "CANVAS" || clickedTag == "IMG" )
+        return false;
+    }
+    document.oncontextmenu = nocontext;
+  </script>
 
   <script src="libraries.js"></script>
   <script src="app.js"></script>
