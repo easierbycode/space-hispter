@@ -8,15 +8,24 @@ import FlirtyGirls from '../objects/FlirtyGirls';
 import KissBullet from '../objects/KissBullet';
 import Lakitufo from '../objects/Lakitufo';
 import Lakitufos from '../objects/Lakitufos';
+import Bowser from '../objects/Bowser';
+import Bowsers from '../objects/Bowsers';
+import BowserFireballs from '../objects/BowserFireballs';
 import Bullet from '../objects/Bullet';
+import Fireball from '../objects/Fireball';
 import PlayerBullets from '../objects/PlayerBullets';
 import EnemyBullets from '../objects/EnemyBullets';
+
 
 window.globalObjects = {
   Background        : Background,
   Player            : Player,
   Enemy             : Enemy,
   Enemies           : Enemies,
+  Fireball          : Fireball,
+  Bowser            : Bowser,
+  Bowsers           : Bowsers,
+  BowserFireballs   : BowserFireballs,
   Bullet            : Bullet,
   PlayerBullets     : PlayerBullets,
   EnemyBullets      : EnemyBullets,

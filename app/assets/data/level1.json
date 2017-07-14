@@ -3,6 +3,7 @@
   "groups": [
     "lakitufos",
     "enemies",
+    "bowsers",
     "flirtyGirls"
   ],
   "enemies": 
@@ -13,9 +14,9 @@
       "health": 12,
       "speedX": 20, 
       "speedY": 50,
-      "key": "flirtyGirl",
+      "key": "bowser",
       "scale": 3,
-      "type": "flirtyGirls"
+      "type": "bowsers"
     },
     {
       "time": 2,
@@ -23,9 +24,9 @@
       "health": 6,
       "speedX": 50, 
       "speedY": 50,
-      "key": "flirtyGirl",
+      "key": "bowser",
       "scale": 1,
-      "type": "flirtyGirls"
+      "type": "bowsers"
     },
     {
       "time": 3,
@@ -33,9 +34,9 @@
       "health": 6,
       "speedX": 50, 
       "speedY": 50,
-      "key": "flirtyGirl",
+      "key": "bowser",
       "scale": 1,
-      "type": "flirtyGirls"
+      "type": "bowsers"
     },
     {
       "time": 4,
@@ -43,9 +44,9 @@
       "health": 6,
       "speedX": 50, 
       "speedY": 50,
-      "key": "flirtyGirl",
+      "key": "bowser",
       "scale": 1,
-      "type": "flirtyGirls"
+      "type": "bowsers"
     },
     {
       "time": 5,
@@ -53,9 +54,9 @@
       "health": 6,
       "speedX": 50, 
       "speedY": 50,
-      "key": "flirtyGirl",
+      "key": "bowser",
       "scale": 1,
-      "type": "flirtyGirls"
+      "type": "bowsers"
     },
     {
       "time": 7,
@@ -143,9 +144,9 @@
       "health": 3,
       "speedX": -50, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "flirtyGirl",
       "scale": 1,
-      "type": "enemies"
+      "type": "flirtyGirls"
     },
     {
       "time": 16,
@@ -153,9 +154,9 @@
       "health": 6,
       "speedX": 20, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "flirtyGirl",
       "scale": 3,
-      "type": "enemies"
+      "type": "flirtyGirls"
     },
     {
       "time": 17,
@@ -163,9 +164,9 @@
       "health": 3,
       "speedX": 50, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "flirtyGirl",
       "scale": 1,
-      "type": "enemies"
+      "type": "flirtyGirls"
     },
     {
       "time": 18,
@@ -173,9 +174,9 @@
       "health": 3,
       "speedX": 50, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "flirtyGirl",
       "scale": 1,
-      "type": "enemies"
+      "type": "flirtyGirls"
     },
     {
       "time": 19,
@@ -183,9 +184,9 @@
       "health": 3,
       "speedX": 50, 
       "speedY": 50,
-      "key": "redDevil",
+      "key": "flirtyGirl",
       "scale": 1,
-      "type": "enemies"
+      "type": "flirtyGirls"
     },
     {
       "time": 20,
